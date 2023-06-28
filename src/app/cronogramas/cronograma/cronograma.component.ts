@@ -9,6 +9,10 @@ import { CronogramasService } from './cronogramas.service';
 })
 export class CronogramaComponent {
 
+  periodoLectivo: Date = new Date();
+  fechaCreacion: Date = new Date();
+  creador: string = '';
+
   form: FormGroup;//Reactive Form
 
 
@@ -51,6 +55,13 @@ export class CronogramaComponent {
     this.cronogramasService.actualizarCronograma(this.idField.value, this.form.value);
     console.log(this.cronogramasService.cronogramas);
   }
+
+  validateForm() {
+    if (this.periodoLectivo === '' && this.periodoLectivo.length <= 3) {
+
+    }
+  }
+
 
   get idField() {
     return this.form.controls['id'];
