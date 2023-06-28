@@ -13,6 +13,8 @@ export class AprobarListaComponent {
 
  constructor(private aprobacionService:AprobacionService, private router: Router){
   this.aprobacion = this.aprobacionService.aprobacion;
+  this.getAllCountries();
+
   }
 
   crearAprobar() {
@@ -28,6 +30,20 @@ export class AprobarListaComponent {
   borrarAprobar(id: number) {
     this.aprobacionService.borrarAprobar(id);
     console.log(this.aprobacionService.aprobacion);
+  }
+
+  getAllCountries() {
+    console.log('1');
+
+    this.aprobacionService.getAllCountries().subscribe(
+      (      response: any) => {
+        console.log(response);
+      }, (error: any) => {
+        console.log(error);
+      }
+    );
+
+    console.log('3');
   }
 
 
